@@ -1,0 +1,13 @@
+services:
+  api:
+    build: ./apps/api
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./apps/api:/usr/src/app
+    environment:
+      - REDIS_URL=redis://cache:6379
+  cache:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
