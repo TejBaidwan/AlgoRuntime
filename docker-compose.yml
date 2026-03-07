@@ -1,13 +1,21 @@
 services:
   api:
-    build: ./apps/api
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
     ports:
-      - "5000:5000"
+      - "5005:5005"
     volumes:
-      - ./apps/api:/usr/src/app
+      - .:/app
+      - /app/node_modules
     environment:
+      - PORT=5000
       - REDIS_URL=redis://cache:6379
+    depends_on:
+      - cache
+
   cache:
     image: redis:alpine
     ports:
       - "6379:6379"
+    restart: always
