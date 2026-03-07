@@ -11,7 +11,9 @@
   "scripts": {
     "dev:api": "npm run dev --workspace=apps/api",
     "dev:web": "npm run dev --workspace=apps/client",
-    "dev": "npm run dev --workspaces"
+    "dev": "npm run dev --workspaces",
+    "build": "npm run build --workspaces",
+    "lint": "npm run lint --workspaces"
   },
   "keywords": [],
   "author": "",
